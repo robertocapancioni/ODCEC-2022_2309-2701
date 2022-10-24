@@ -30,7 +30,7 @@ add constraint d09_marchio_fk
 
        
 create sequence d09_prodotti_seq
-minvalue 1
+minvalue 31
 increment by 1;
 
 create or replace trigger d09_biu_a_prodotti
