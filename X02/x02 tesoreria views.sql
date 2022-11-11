@@ -82,7 +82,16 @@ select
  group by to_char(data_emissione,'YYYY-MM')
  /
 
-
+create or replace  view x02_ciclo_attivo_ragione_sociale_vw as 
+  select 
+       ragione_sociale,
+       sum(importo)importo,
+       sum(importo_pagato)importo_pagato,
+       sum(importo_non_pagato)importo_non_pagato,
+       round(100*sum(importo_non_pagato)/sum(importo),2) perc_impagato
+  from x02_ciclo_attivo_vw
+ group by ragione_sociale
+ 
  create or replace view x02_ciclo_passivo_vw as
 select cedenteprestatore_datianagrafici_anagrafica_ ragione_sociale,
        cedenteprestatore_sede_comune comune,
