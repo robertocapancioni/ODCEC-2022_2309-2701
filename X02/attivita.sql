@@ -5,6 +5,7 @@ select A.ID,
        A.DATA,
        A.ORE,
        A.COSTO,
+       P.TARIFFA,
        A.ORE * P.TARIFFA COSTO_PERSONA
   from X02_ATTIVITA A
   join X02_PERSONE P
