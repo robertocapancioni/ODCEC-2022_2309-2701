@@ -91,6 +91,7 @@ create or replace  view x02_ciclo_attivo_ragione_sociale_vw as
        round(100*sum(importo_non_pagato)/sum(importo),2) perc_impagato
   from x02_ciclo_attivo_vw
  group by ragione_sociale
+ /
  
  create or replace view x02_ciclo_passivo_vw as
 select cedenteprestatore_datianagrafici_anagrafica_ ragione_sociale,
