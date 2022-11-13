@@ -53,4 +53,4 @@ select c.comune,
 insert 
   into d13_comuni 
        (comune,provincia_cod)
-values ('Varese','MI')
+values ('Arese','MI')
