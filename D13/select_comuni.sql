@@ -54,3 +54,8 @@ insert
   into d13_comuni 
        (comune,provincia_cod)
 values ('Arese','MI')
+
+insert 
+  into d13_province
+       (provincia_cod,provincia)
+values ('MI','Milano (doppio)')
