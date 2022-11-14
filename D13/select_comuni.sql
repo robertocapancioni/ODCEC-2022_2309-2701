@@ -11,7 +11,7 @@ delete
  where provincia_cod in ('BG','BS','CO')
 
 delete 
-  from d13_provincia 
+  from d13_province 
  where provincia_cod in ('MN','PV','SO','VA')
 
 select c.comune,
