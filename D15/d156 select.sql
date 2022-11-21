@@ -15,3 +15,8 @@ select R.ID,
   join D156_DIPENDENTE D
     on R.DIPENDENTE_ID = D.ID
  where D.UTENTE = :APP_USER
+
+-- query per il valore predefinito
+select ID 
+  from D156_DIPENDENTE
+ where UTENTE = :APP_USER
