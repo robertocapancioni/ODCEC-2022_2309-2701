@@ -8,7 +8,6 @@ select r.id,
        r.descrizione,
        r.data_inizio,
        r.data_fine,
-       r.approvato_yn,
        round((data_fine - data_inizio)*24,2) ore
   from d156_richiesta r
   join d156_dipendente d
