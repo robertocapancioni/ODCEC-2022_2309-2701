@@ -1,0 +1,10 @@
+select R.ID,
+       R.DIPENDENTE_ID,
+       R.TIPO_RICHIESTA_ID,
+       R.DESCRIZIONE,
+       R.DATA_INIZIO,
+       R.DATA_FINE
+  from D156_RICHIESTA R
+  join D156_DIPENDENTE D
+    on R.DIPENDENTE_ID = D.ID
+ where D.UTENTE = :APP_USER
