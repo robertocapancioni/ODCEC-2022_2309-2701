@@ -36,3 +36,18 @@ select
        to_char(data,'Q')       trimestre,
        to_char(data,'YYYY-Q')  annotrimestre
   from d171_attivita_vw
+  
+  select to_char(data,'YYYY')anno,
+           sum(ore) tot_ore,
+           sum(importo)importo
+      from d171_attivita_vw
+  group by to_char(data,'YYYY')
+
+select to_char(data,'YYYY-MM')annomese,
+           cliente,
+           sum(ore) tot_ore,
+           sum(importo)importo
+      from d171_attivita_vw
+  group by to_char(data,'YYYY-MM'),
+           cliente
+
