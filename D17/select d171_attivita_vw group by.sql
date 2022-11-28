@@ -26,3 +26,13 @@ select dipendente,
       from d171_attivita_vw
   group by dipendente,
            cliente
+
+select 
+       data,
+       to_char(data,'YYYY')    anno,
+       to_char(data,'MM')      mese,
+       to_char(data,'MONTH')   mese_desc,
+       to_char(data,'YYYY-MM') annomese,
+       to_char(data,'Q')       trimestre,
+       to_char(data,'YYYY-Q')  annotrimestre
+  from d171_attivita_vw
