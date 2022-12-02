@@ -9,6 +9,9 @@ select
        a.commessa_id,
        m.commessa,
        a.data,
+       to_char(a.data,'YYYY')    anno,
+       to_char(a.data,'MM')      mese,
+       to_char(a.data,'YYYY-MM') annomese,
        a.ore,
        d.tariffa * a.ore importo
   from d181_attivita a
