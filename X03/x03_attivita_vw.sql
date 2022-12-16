@@ -1,6 +1,7 @@
 create or replace view x03_attivita_vw as
 select 
        a.id,
+       a.attivita,
        a.dipendente_id,
        d.dipendente,
        d.tariffa,
