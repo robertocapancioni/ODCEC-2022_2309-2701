@@ -60,6 +60,8 @@ create table x03_attivita (
     stato_id                       number
                                    constraint x03_attivita_stato_id_fk
                                    references x03_stato not null,
+    attivita                       varchar2(50 char)
+                                   constraint x03_attivita_attivita_unq unique not null,
     data                           date not null,
     ore                            number not null
 )
@@ -67,9 +69,9 @@ create table x03_attivita (
 
 -- table index
 create index x03_attivita_i1 on x03_attivita (cliente_id);
-create index x03_attivita_i142 on x03_attivita (commessa_id);
-create index x03_attivita_i153 on x03_attivita (dipendente_id);
-create index x03_attivita_i164 on x03_attivita (stato_id);
+create index x03_attivita_i152 on x03_attivita (commessa_id);
+create index x03_attivita_i163 on x03_attivita (dipendente_id);
+create index x03_attivita_i174 on x03_attivita (stato_id);
 
 -- load data
  
@@ -124,9 +126,9 @@ insert into x03_cliente (
     'CLIENTE_01',
     null,
     'Client Library Upgrade',
-    'Ipsumprimis in faucibus orci luctus.',
-    'Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum tellus, quis posuere mi maximus vitae. Quisque tortor odio, feugiat eget sagittisvel, pretium ut metus. Duis et commodo arcu, in vestibulum tellus. In sollicitudin nisi mi, pharetra gravida ex semper ut.Donec.',
-    sysdate - 20
+    'Et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec.',
+    'Vestibulum ante ipsumprimis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi.',
+    sysdate - 16
 );
 
 insert into x03_cliente (
@@ -142,9 +144,9 @@ insert into x03_cliente (
     'CLIENTE_02',
     null,
     'Agile Scrum Training',
-    'Ac sapien suscipit tristique ac volutpat risus.Phasellus vitae ligula commodo, dictum lorem sit amet, imperdiet ex. Etiam cursus porttitor tincidunt. Vestibulum ante ipsumprimis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla.',
-    'Elit, vestibulum eget rhoncus non,molestie sit amet lectus. Nulla placerat iaculis aliquam. Vestibulum lacinia arcu in massa pharetra, id mattis risus rhoncus.Cras vulputate porttitor ligula. Nam semper diam suscipit elementum sodales. Proin sit amet massa.',
-    sysdate - 7
+    'Proin viverra lacinialectus, quis consectetur mi venenatis nec.',
+    'Rhoncus non,molestie sit amet lectus. Nulla placerat iaculis aliquam. Vestibulum lacinia arcu in massa pharetra, id mattis risus.',
+    sysdate - 85
 );
 
 insert into x03_cliente (
@@ -160,9 +162,9 @@ insert into x03_cliente (
     'CLIENTE_03',
     null,
     'Elastic Rightsize Automation',
-    'Posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada.',
-    'Viverra lacinialectus.',
-    sysdate - 56
+    'Ac ante ipsum primis in faucibus. Ut id nulla ac sapien suscipit tristique ac volutpat risus.Phasellus vitae ligula commodo, dictum lorem sit amet, imperdiet ex. Etiam cursus.',
+    'Mattis risus rhoncus.Cras vulputate porttitor ligula. Nam semper diam suscipit elementum sodales. Proin sit amet massa eu lorem commodo ullamcorper.Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut id nulla ac sapien suscipit tristique ac volutpat risus.Phasellus vitae ligula commodo, dictum lorem sit amet, imperdiet ex. Etiam cursus porttitor tincidunt. Vestibulum.',
+    sysdate - 16
 );
 
 commit;
@@ -252,6 +254,7 @@ modify id generated always as identity restart start with 4;
  
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -260,16 +263,18 @@ insert into x03_attivita (
     ore
 ) values (
     1,
+    'Vulputate Placerat Pellentesque Proin',
+    2,
     1,
     3,
-    3,
-    1,
-    sysdate - 8,
-    19
+    4,
+    sysdate - 43,
+    76
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -278,16 +283,18 @@ insert into x03_attivita (
     ore
 ) values (
     2,
+    'Rhoncus Nonmolestie Sit Amet',
+    3,
     2,
-    1,
     2,
-    1,
-    sysdate - 86,
-    5
+    4,
+    sysdate - 43,
+    94
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -296,16 +303,18 @@ insert into x03_attivita (
     ore
 ) values (
     3,
+    'Risus Rhoncuscras Vulputate Porttitor',
     1,
-    3,
-    3,
     1,
-    sysdate - 35,
-    10
+    2,
+    1,
+    sysdate - 72,
+    72
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -314,16 +323,18 @@ insert into x03_attivita (
     ore
 ) values (
     4,
+    'Diam Suscipit Elementum Sodales',
+    3,
+    1,
+    1,
     2,
-    2,
-    2,
-    4,
-    sysdate - 75,
-    32
+    sysdate - 74,
+    50
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -332,16 +343,18 @@ insert into x03_attivita (
     ore
 ) values (
     5,
+    'Cubilia Curae; Proin Vulputate',
     1,
     2,
+    1,
     2,
-    2,
-    sysdate - 78,
-    2
+    sysdate - 76,
+    65
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -350,16 +363,18 @@ insert into x03_attivita (
     ore
 ) values (
     6,
+    'Arcu In Massa Pharetra',
+    2,
     2,
     2,
     1,
-    1,
-    sysdate - 99,
-    92
+    sysdate - 88,
+    2
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -368,16 +383,18 @@ insert into x03_attivita (
     ore
 ) values (
     7,
-    3,
+    'Et Malesuada Fames Ac',
     1,
-    3,
-    3,
-    sysdate - 60,
-    66
+    2,
+    1,
+    4,
+    sysdate - 23,
+    20
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -386,16 +403,18 @@ insert into x03_attivita (
     ore
 ) values (
     8,
+    'Placerat Iaculis Aliquam Vestibulum',
     3,
+    2,
     3,
-    1,
-    1,
-    sysdate - 3,
-    73
+    4,
+    sysdate - 82,
+    56
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -404,16 +423,18 @@ insert into x03_attivita (
     ore
 ) values (
     9,
-    1,
+    'Etiam Cursus Porttitor Tincidunt',
+    3,
     1,
     3,
-    3,
-    sysdate - 77,
-    99
+    4,
+    sysdate - 66,
+    21
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -422,16 +443,18 @@ insert into x03_attivita (
     ore
 ) values (
     10,
+    'Malesuada Fames Ac Ante',
+    3,
+    3,
     2,
     1,
-    3,
-    3,
-    sysdate - 12,
-    13
+    sysdate - 20,
+    28
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -440,16 +463,18 @@ insert into x03_attivita (
     ore
 ) values (
     11,
+    'Ante Ipsumprimis In Faucibus',
+    2,
     3,
     2,
     2,
-    3,
-    sysdate - 95,
-    30
+    sysdate - 20,
+    56
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -458,16 +483,18 @@ insert into x03_attivita (
     ore
 ) values (
     12,
-    2,
+    'Nonmolestie Sit Amet Lectus',
+    3,
+    1,
     2,
     1,
-    3,
-    sysdate - 45,
-    50
+    sysdate - 99,
+    93
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -476,16 +503,18 @@ insert into x03_attivita (
     ore
 ) values (
     13,
-    3,
-    3,
-    3,
-    4,
-    sysdate - 87,
-    62
+    'Etiam Cursus Porttitor Tincidunt',
+    2,
+    1,
+    2,
+    1,
+    sysdate - 40,
+    43
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -494,16 +523,18 @@ insert into x03_attivita (
     ore
 ) values (
     14,
+    'Vitae Ligula Commodo Dictum',
     3,
-    2,
+    1,
     3,
-    3,
-    sysdate - 78,
-    75
+    4,
+    sysdate - 47,
+    10
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -512,16 +543,18 @@ insert into x03_attivita (
     ore
 ) values (
     15,
+    'Vulputate Placerat Pellentesque Proin',
+    2,
     2,
     1,
-    2,
-    4,
-    sysdate - 1,
-    2
+    1,
+    sysdate - 69,
+    21
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -530,16 +563,18 @@ insert into x03_attivita (
     ore
 ) values (
     16,
+    'Risus Rhoncuscras Vulputate Porttitor',
     1,
     2,
     2,
-    1,
-    sysdate - 51,
-    70
+    3,
+    sysdate - 2,
+    87
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -548,16 +583,18 @@ insert into x03_attivita (
     ore
 ) values (
     17,
-    1,
-    1,
+    'Diam Suscipit Elementum Sodales',
+    3,
+    3,
     2,
     1,
-    sysdate - 63,
-    40
+    sysdate - 97,
+    72
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -566,16 +603,18 @@ insert into x03_attivita (
     ore
 ) values (
     18,
+    'Ante Ipsumprimis In Faucibus',
     2,
+    3,
+    1,
     2,
-    2,
-    2,
-    sysdate - 40,
-    93
+    sysdate - 73,
+    3
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -584,16 +623,18 @@ insert into x03_attivita (
     ore
 ) values (
     19,
-    1,
-    1,
+    'Ut Id Nulla Ac',
+    2,
     3,
     1,
-    sysdate - 73,
-    73
+    3,
+    sysdate - 50,
+    12
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -602,16 +643,18 @@ insert into x03_attivita (
     ore
 ) values (
     20,
+    'Luctus Et Ultrices Posuere',
+    1,
     2,
     3,
     3,
-    3,
-    sysdate - 45,
-    28
+    sysdate - 99,
+    54
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -620,16 +663,18 @@ insert into x03_attivita (
     ore
 ) values (
     21,
+    'Et Ultrices Posuere Cubilia',
+    1,
     1,
     3,
     3,
-    2,
-    sysdate - 8,
-    36
+    sysdate - 78,
+    62
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -638,16 +683,18 @@ insert into x03_attivita (
     ore
 ) values (
     22,
+    'Sit Amet Imperdiet Ex',
+    3,
+    3,
     1,
     1,
-    1,
-    1,
-    sysdate - 55,
-    2
+    sysdate - 83,
+    66
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -656,16 +703,18 @@ insert into x03_attivita (
     ore
 ) values (
     23,
+    'Ex Etiam Cursus Porttitor',
     2,
     3,
     1,
-    4,
-    sysdate - 74,
-    3
+    2,
+    sysdate - 47,
+    65
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -674,16 +723,18 @@ insert into x03_attivita (
     ore
 ) values (
     24,
+    'Vestibulum Eget Rhoncus Nonmolestie',
     3,
     2,
+    3,
     2,
-    4,
-    sysdate - 75,
-    7
+    sysdate - 27,
+    1
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -692,16 +743,18 @@ insert into x03_attivita (
     ore
 ) values (
     25,
+    'Ligula Nam Semper Diam',
+    2,
     3,
     1,
-    2,
-    4,
-    sysdate - 58,
-    58
+    3,
+    sysdate - 3,
+    22
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -710,16 +763,18 @@ insert into x03_attivita (
     ore
 ) values (
     26,
-    1,
-    1,
+    'Cursus Porttitor Tincidunt Vestibulum',
+    2,
     3,
-    4,
-    sysdate - 44,
+    1,
+    2,
+    sysdate - 40,
     36
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -728,16 +783,18 @@ insert into x03_attivita (
     ore
 ) values (
     27,
-    3,
+    'Cursus Porttitor Tincidunt Vestibulum',
+    1,
     2,
     2,
-    2,
-    sysdate - 20,
-    23
+    4,
+    sysdate - 41,
+    82
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -746,16 +803,18 @@ insert into x03_attivita (
     ore
 ) values (
     28,
-    2,
-    2,
+    'Ex Etiam Cursus Porttitor',
     1,
     2,
-    sysdate - 20,
-    2
+    3,
+    4,
+    sysdate - 3,
+    94
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -764,16 +823,18 @@ insert into x03_attivita (
     ore
 ) values (
     29,
+    'Lectus Nulla Placerat Iaculis',
     2,
     1,
     3,
     3,
-    sysdate - 43,
-    33
+    sysdate - 15,
+    61
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -782,16 +843,18 @@ insert into x03_attivita (
     ore
 ) values (
     30,
+    'Etiam Cursus Porttitor Tincidunt',
+    2,
     3,
     1,
-    3,
-    3,
-    sysdate - 77,
-    33
+    2,
+    sysdate - 20,
+    21
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -800,16 +863,18 @@ insert into x03_attivita (
     ore
 ) values (
     31,
+    'Ligula Nam Semper Diam',
+    1,
+    1,
     2,
-    2,
-    3,
-    2,
-    sysdate - 94,
-    34
+    1,
+    sysdate - 41,
+    81
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -818,16 +883,18 @@ insert into x03_attivita (
     ore
 ) values (
     32,
+    'Pellentesque Proin Viverra Lacinialectus',
     2,
-    1,
-    1,
-    2,
-    sysdate - 44,
-    26
+    3,
+    3,
+    3,
+    sysdate - 25,
+    25
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -836,16 +903,18 @@ insert into x03_attivita (
     ore
 ) values (
     33,
+    'Nec Donec Convallis Sollicitudin',
     3,
     2,
     2,
     3,
-    sysdate - 49,
-    77
+    sysdate - 8,
+    96
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -854,16 +923,18 @@ insert into x03_attivita (
     ore
 ) values (
     34,
+    'Sollicitudin Elementum Nulla Facilisi',
     1,
-    1,
+    3,
     1,
     4,
-    sysdate - 37,
-    39
+    sysdate - 88,
+    69
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -872,16 +943,18 @@ insert into x03_attivita (
     ore
 ) values (
     35,
+    'Sit Amet Massa Eu',
+    2,
     3,
-    2,
-    2,
     1,
-    sysdate - 7,
-    62
+    1,
+    sysdate - 26,
+    50
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -890,16 +963,18 @@ insert into x03_attivita (
     ore
 ) values (
     36,
+    'Nonmolestie Sit Amet Lectus',
+    3,
     3,
     1,
-    1,
     4,
-    sysdate - 84,
-    91
+    sysdate - 33,
+    100
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -908,16 +983,18 @@ insert into x03_attivita (
     ore
 ) values (
     37,
+    'Posuere Cubilia Curae; Proin',
     2,
     2,
-    3,
-    4,
-    sysdate - 12,
-    36
+    1,
+    1,
+    sysdate - 35,
+    14
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -926,16 +1003,18 @@ insert into x03_attivita (
     ore
 ) values (
     38,
+    'Rhoncus Nonmolestie Sit Amet',
     3,
     3,
-    2,
-    2,
-    sysdate - 25,
-    36
+    3,
+    4,
+    sysdate - 39,
+    79
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -944,16 +1023,18 @@ insert into x03_attivita (
     ore
 ) values (
     39,
+    'Venenatis Nec Donec Convallis',
     1,
-    1,
-    2,
     3,
-    sysdate - 18,
-    82
+    3,
+    2,
+    sysdate - 64,
+    24
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -962,16 +1043,18 @@ insert into x03_attivita (
     ore
 ) values (
     40,
-    3,
+    'Ligula Nam Semper Diam',
     2,
     3,
-    2,
-    sysdate - 42,
-    91
+    3,
+    3,
+    sysdate - 97,
+    4
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -980,16 +1063,18 @@ insert into x03_attivita (
     ore
 ) values (
     41,
+    'Sit Amet Imperdiet Ex',
+    3,
     1,
-    1,
-    1,
-    2,
-    sysdate - 35,
-    18
+    3,
+    3,
+    sysdate - 85,
+    41
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -998,16 +1083,18 @@ insert into x03_attivita (
     ore
 ) values (
     42,
+    'Ante Ipsumprimis In Faucibus',
+    1,
+    1,
     2,
-    3,
-    3,
-    4,
-    sysdate - 36,
-    24
+    1,
+    sysdate - 18,
+    82
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1016,16 +1103,18 @@ insert into x03_attivita (
     ore
 ) values (
     43,
+    'Arcu In Massa Pharetra',
+    2,
+    2,
+    2,
     3,
-    2,
-    1,
-    2,
-    sysdate - 96,
-    67
+    sysdate - 71,
+    79
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1034,16 +1123,18 @@ insert into x03_attivita (
     ore
 ) values (
     44,
+    'Ex Etiam Cursus Porttitor',
+    3,
+    3,
     1,
-    1,
-    1,
-    1,
-    sysdate - 86,
-    68
+    2,
+    sysdate - 59,
+    23
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1052,16 +1143,18 @@ insert into x03_attivita (
     ore
 ) values (
     45,
+    'Luctus Et Ultrices Posuere',
+    2,
+    2,
     1,
     3,
-    2,
-    3,
-    sysdate - 6,
-    14
+    sysdate - 13,
+    67
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1070,16 +1163,18 @@ insert into x03_attivita (
     ore
 ) values (
     46,
-    1,
-    3,
+    'Proin Viverra Lacinialectus Quis',
     3,
     2,
-    sysdate - 8,
-    37
+    3,
+    1,
+    sysdate - 10,
+    99
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1088,16 +1183,18 @@ insert into x03_attivita (
     ore
 ) values (
     47,
+    'Ante Ipsumprimis In Faucibus',
+    1,
     1,
     3,
-    1,
     2,
-    sysdate - 98,
+    sysdate - 18,
     91
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1106,16 +1203,18 @@ insert into x03_attivita (
     ore
 ) values (
     48,
-    3,
+    'Suscipit Tristique Ac Volutpat',
     1,
-    3,
+    2,
+    1,
     4,
-    sysdate - 40,
-    70
+    sysdate - 37,
+    59
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1124,16 +1223,18 @@ insert into x03_attivita (
     ore
 ) values (
     49,
-    3,
-    3,
+    'Nec Donec Convallis Sollicitudin',
+    1,
+    2,
     2,
     3,
-    sysdate - 11,
-    46
+    sysdate - 28,
+    85
 );
 
 insert into x03_attivita (
     id,
+    attivita,
     dipendente_id,
     cliente_id,
     commessa_id,
@@ -1142,12 +1243,13 @@ insert into x03_attivita (
     ore
 ) values (
     50,
+    'Venenatis Nec Donec Convallis',
     1,
     1,
     3,
-    2,
-    sysdate - 91,
-    64
+    3,
+    sysdate - 15,
+    30
 );
 
 commit;
@@ -1156,7 +1258,7 @@ alter table x03_attivita
 modify id generated always as identity restart start with 51;
  
  
--- Generated by Quick SQL Venerdì Dicembre 16, 2022  10:50:34
+-- Generated by Quick SQL Venerdì Dicembre 16, 2022  11:09:13
  
 /*
 dipendente /insert 3
@@ -1175,6 +1277,7 @@ commessa /insert 3
   commessa vc30 /values comm01,comm02,comm03 /unique
 
 attivita /insert 50
+  attivita vc50 /nn /unique
   dipendente_id /nn
   cliente_id /nn
   commessa_id /nn
