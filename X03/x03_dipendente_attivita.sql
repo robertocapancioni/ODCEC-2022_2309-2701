@@ -33,7 +33,7 @@ create table x03_stato (
                                    constraint x03_stato_id_pk primary key,
     stato                          varchar2(14 char)
                                    constraint x03_stato_stato_unq unique not null,
-    stato_class                    varchar2(50 char)
+    stato_class                    varchar2(9 char)
 )
 ;
 
@@ -124,9 +124,9 @@ insert into x03_cliente (
     'CLIENTE_01',
     null,
     'Client Library Upgrade',
-    'Et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum tellus, quis posuere mi maximus vitae. Quisque tortor odio, feugiat eget sagittisvel, pretium ut metus. Duis et commodo arcu.',
-    'Commodo ullamcorper.Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut id nulla.',
-    sysdate - 57
+    'Ipsumprimis in faucibus orci luctus.',
+    'Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum tellus, quis posuere mi maximus vitae. Quisque tortor odio, feugiat eget sagittisvel, pretium ut metus. Duis et commodo arcu, in vestibulum tellus. In sollicitudin nisi mi, pharetra gravida ex semper ut.Donec.',
+    sysdate - 20
 );
 
 insert into x03_cliente (
@@ -142,9 +142,9 @@ insert into x03_cliente (
     'CLIENTE_02',
     null,
     'Agile Scrum Training',
-    'Venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum.',
-    'Vitae ligula commodo, dictum lorem sit amet, imperdiet ex. Etiam cursus porttitor tincidunt. Vestibulum ante ipsumprimis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum tellus, quis posuere mi maximus vitae.',
-    sysdate - 97
+    'Ac sapien suscipit tristique ac volutpat risus.Phasellus vitae ligula commodo, dictum lorem sit amet, imperdiet ex. Etiam cursus porttitor tincidunt. Vestibulum ante ipsumprimis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla.',
+    'Elit, vestibulum eget rhoncus non,molestie sit amet lectus. Nulla placerat iaculis aliquam. Vestibulum lacinia arcu in massa pharetra, id mattis risus rhoncus.Cras vulputate porttitor ligula. Nam semper diam suscipit elementum sodales. Proin sit amet massa.',
+    sysdate - 7
 );
 
 insert into x03_cliente (
@@ -160,9 +160,9 @@ insert into x03_cliente (
     'CLIENTE_03',
     null,
     'Elastic Rightsize Automation',
-    'Arcu in massa pharetra, id mattis risus rhoncus.Cras vulputate porttitor ligula. Nam semper diam suscipit elementum sodales. Proin sit amet massa eu lorem commodo ullamcorper.Interdum et malesuada fames ac ante ipsum primis in.',
-    'Et ultrices posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada. Vivamus efficitur ipsum tellus, quis posuere mi maximus vitae. Quisque tortor odio, feugiat eget sagittisvel, pretium ut metus. Duis et commodo arcu.',
-    sysdate - 46
+    'Posuere cubilia Curae; Proin vulputate placerat pellentesque. Proin viverra lacinialectus, quis consectetur mi venenatis nec. Donec convallis sollicitudin elementum. Nulla facilisi. In posuere blandit leoeget malesuada.',
+    'Viverra lacinialectus.',
+    sysdate - 56
 );
 
 commit;
@@ -179,7 +179,7 @@ insert into x03_stato (
 ) values (
     1,
     '10_DA_INIZIARE',
-    'Pellentesque Proin Viverra Lacinialectus'
+    'U-INFO'
 );
 
 insert into x03_stato (
@@ -189,7 +189,7 @@ insert into x03_stato (
 ) values (
     2,
     '20_INIZIATO',
-    'Porttitor Tincidunt Vestibulum Ante'
+    'U-WARNING'
 );
 
 insert into x03_stato (
@@ -199,13 +199,23 @@ insert into x03_stato (
 ) values (
     3,
     '30_CONCLUSO',
-    'Ullamcorperinterdum Et Malesuada Fames'
+    'U-SUCCESS'
+);
+
+insert into x03_stato (
+    id,
+    stato,
+    stato_class
+) values (
+    4,
+    '90_ANNULLATO',
+    'U-DANGER'
 );
 
 commit;
 
 alter table x03_stato
-modify id generated always as identity restart start with 4;
+modify id generated always as identity restart start with 5;
  
 -- load data
  
@@ -250,12 +260,12 @@ insert into x03_attivita (
     ore
 ) values (
     1,
-    2,
     1,
-    2,
-    2,
-    sysdate - 65,
-    68
+    3,
+    3,
+    1,
+    sysdate - 8,
+    19
 );
 
 insert into x03_attivita (
@@ -268,12 +278,12 @@ insert into x03_attivita (
     ore
 ) values (
     2,
-    1,
-    2,
     2,
     1,
-    sysdate - 37,
-    78
+    2,
+    1,
+    sysdate - 86,
+    5
 );
 
 insert into x03_attivita (
@@ -289,9 +299,9 @@ insert into x03_attivita (
     1,
     3,
     3,
-    2,
-    sysdate - 41,
-    36
+    1,
+    sysdate - 35,
+    10
 );
 
 insert into x03_attivita (
@@ -304,12 +314,12 @@ insert into x03_attivita (
     ore
 ) values (
     4,
-    1,
-    1,
     2,
-    3,
-    sysdate - 77,
-    40
+    2,
+    2,
+    4,
+    sysdate - 75,
+    32
 );
 
 insert into x03_attivita (
@@ -323,11 +333,11 @@ insert into x03_attivita (
 ) values (
     5,
     1,
-    3,
     2,
-    1,
-    sysdate - 66,
-    35
+    2,
+    2,
+    sysdate - 78,
+    2
 );
 
 insert into x03_attivita (
@@ -340,12 +350,12 @@ insert into x03_attivita (
     ore
 ) values (
     6,
+    2,
+    2,
     1,
-    2,
-    2,
-    2,
-    sysdate - 89,
-    65
+    1,
+    sysdate - 99,
+    92
 );
 
 insert into x03_attivita (
@@ -358,12 +368,12 @@ insert into x03_attivita (
     ore
 ) values (
     7,
-    2,
     3,
     1,
-    2,
-    sysdate - 62,
-    77
+    3,
+    3,
+    sysdate - 60,
+    66
 );
 
 insert into x03_attivita (
@@ -376,12 +386,12 @@ insert into x03_attivita (
     ore
 ) values (
     8,
-    1,
+    3,
     3,
     1,
-    3,
-    sysdate - 29,
-    81
+    1,
+    sysdate - 3,
+    73
 );
 
 insert into x03_attivita (
@@ -395,11 +405,11 @@ insert into x03_attivita (
 ) values (
     9,
     1,
+    1,
     3,
     3,
-    3,
-    sysdate - 92,
-    27
+    sysdate - 77,
+    99
 );
 
 insert into x03_attivita (
@@ -412,12 +422,12 @@ insert into x03_attivita (
     ore
 ) values (
     10,
-    3,
-    3,
     2,
     1,
-    sysdate - 27,
-    60
+    3,
+    3,
+    sysdate - 12,
+    13
 );
 
 insert into x03_attivita (
@@ -431,11 +441,11 @@ insert into x03_attivita (
 ) values (
     11,
     3,
-    3,
-    3,
     2,
-    sysdate - 16,
-    88
+    2,
+    3,
+    sysdate - 95,
+    30
 );
 
 insert into x03_attivita (
@@ -448,12 +458,12 @@ insert into x03_attivita (
     ore
 ) values (
     12,
-    3,
-    1,
-    1,
     2,
-    sysdate - 70,
-    47
+    2,
+    1,
+    3,
+    sysdate - 45,
+    50
 );
 
 insert into x03_attivita (
@@ -466,12 +476,12 @@ insert into x03_attivita (
     ore
 ) values (
     13,
-    1,
-    2,
-    1,
-    2,
-    sysdate - 94,
-    63
+    3,
+    3,
+    3,
+    4,
+    sysdate - 87,
+    62
 );
 
 insert into x03_attivita (
@@ -484,12 +494,12 @@ insert into x03_attivita (
     ore
 ) values (
     14,
+    3,
     2,
     3,
     3,
-    1,
-    sysdate - 76,
-    26
+    sysdate - 78,
+    75
 );
 
 insert into x03_attivita (
@@ -502,12 +512,12 @@ insert into x03_attivita (
     ore
 ) values (
     15,
-    1,
+    2,
     1,
     2,
-    2,
-    sysdate - 26,
-    63
+    4,
+    sysdate - 1,
+    2
 );
 
 insert into x03_attivita (
@@ -520,12 +530,12 @@ insert into x03_attivita (
     ore
 ) values (
     16,
-    3,
     1,
-    3,
-    3,
-    sysdate - 21,
-    59
+    2,
+    2,
+    1,
+    sysdate - 51,
+    70
 );
 
 insert into x03_attivita (
@@ -539,11 +549,11 @@ insert into x03_attivita (
 ) values (
     17,
     1,
-    3,
+    1,
     2,
-    2,
-    sysdate - 14,
-    65
+    1,
+    sysdate - 63,
+    40
 );
 
 insert into x03_attivita (
@@ -556,12 +566,12 @@ insert into x03_attivita (
     ore
 ) values (
     18,
-    3,
-    3,
-    3,
-    1,
-    sysdate - 64,
-    27
+    2,
+    2,
+    2,
+    2,
+    sysdate - 40,
+    93
 );
 
 insert into x03_attivita (
@@ -574,12 +584,12 @@ insert into x03_attivita (
     ore
 ) values (
     19,
-    2,
+    1,
     1,
     3,
     1,
-    sysdate - 81,
-    100
+    sysdate - 73,
+    73
 );
 
 insert into x03_attivita (
@@ -592,12 +602,12 @@ insert into x03_attivita (
     ore
 ) values (
     20,
+    2,
     3,
     3,
-    2,
-    2,
-    sysdate - 44,
-    48
+    3,
+    sysdate - 45,
+    28
 );
 
 insert into x03_attivita (
@@ -611,11 +621,11 @@ insert into x03_attivita (
 ) values (
     21,
     1,
+    3,
+    3,
     2,
-    1,
-    1,
-    sysdate - 3,
-    76
+    sysdate - 8,
+    36
 );
 
 insert into x03_attivita (
@@ -628,12 +638,12 @@ insert into x03_attivita (
     ore
 ) values (
     22,
-    2,
-    3,
-    2,
-    2,
-    sysdate - 78,
-    92
+    1,
+    1,
+    1,
+    1,
+    sysdate - 55,
+    2
 );
 
 insert into x03_attivita (
@@ -646,12 +656,12 @@ insert into x03_attivita (
     ore
 ) values (
     23,
-    3,
-    3,
     2,
-    2,
-    sysdate - 27,
-    62
+    3,
+    1,
+    4,
+    sysdate - 74,
+    3
 );
 
 insert into x03_attivita (
@@ -664,12 +674,12 @@ insert into x03_attivita (
     ore
 ) values (
     24,
-    1,
-    3,
     3,
     2,
-    sysdate - 64,
-    34
+    2,
+    4,
+    sysdate - 75,
+    7
 );
 
 insert into x03_attivita (
@@ -682,12 +692,12 @@ insert into x03_attivita (
     ore
 ) values (
     25,
-    1,
-    1,
     3,
+    1,
     2,
-    sysdate - 2,
-    39
+    4,
+    sysdate - 58,
+    58
 );
 
 insert into x03_attivita (
@@ -702,10 +712,10 @@ insert into x03_attivita (
     26,
     1,
     1,
-    1,
-    2,
-    sysdate - 82,
-    3
+    3,
+    4,
+    sysdate - 44,
+    36
 );
 
 insert into x03_attivita (
@@ -718,12 +728,12 @@ insert into x03_attivita (
     ore
 ) values (
     27,
-    2,
-    1,
-    1,
     3,
-    sysdate - 88,
-    59
+    2,
+    2,
+    2,
+    sysdate - 20,
+    23
 );
 
 insert into x03_attivita (
@@ -737,11 +747,11 @@ insert into x03_attivita (
 ) values (
     28,
     2,
+    2,
     1,
-    1,
-    1,
-    sysdate - 60,
-    87
+    2,
+    sysdate - 20,
+    2
 );
 
 insert into x03_attivita (
@@ -754,12 +764,12 @@ insert into x03_attivita (
     ore
 ) values (
     29,
+    2,
     1,
-    2,
     3,
-    2,
-    sysdate - 89,
-    74
+    3,
+    sysdate - 43,
+    33
 );
 
 insert into x03_attivita (
@@ -772,12 +782,12 @@ insert into x03_attivita (
     ore
 ) values (
     30,
+    3,
     1,
-    1,
-    1,
-    2,
-    sysdate - 7,
-    54
+    3,
+    3,
+    sysdate - 77,
+    33
 );
 
 insert into x03_attivita (
@@ -792,10 +802,10 @@ insert into x03_attivita (
     31,
     2,
     2,
-    2,
     3,
-    sysdate - 48,
-    11
+    2,
+    sysdate - 94,
+    34
 );
 
 insert into x03_attivita (
@@ -809,11 +819,11 @@ insert into x03_attivita (
 ) values (
     32,
     2,
-    3,
     1,
     1,
-    sysdate - 75,
-    62
+    2,
+    sysdate - 44,
+    26
 );
 
 insert into x03_attivita (
@@ -827,11 +837,11 @@ insert into x03_attivita (
 ) values (
     33,
     3,
-    1,
     2,
     2,
-    sysdate - 36,
-    62
+    3,
+    sysdate - 49,
+    77
 );
 
 insert into x03_attivita (
@@ -845,11 +855,11 @@ insert into x03_attivita (
 ) values (
     34,
     1,
-    3,
     1,
-    3,
-    sysdate - 7,
-    66
+    1,
+    4,
+    sysdate - 37,
+    39
 );
 
 insert into x03_attivita (
@@ -862,12 +872,12 @@ insert into x03_attivita (
     ore
 ) values (
     35,
-    1,
     3,
     2,
     2,
-    sysdate - 47,
-    88
+    1,
+    sysdate - 7,
+    62
 );
 
 insert into x03_attivita (
@@ -880,12 +890,12 @@ insert into x03_attivita (
     ore
 ) values (
     36,
-    2,
-    1,
-    2,
     3,
-    sysdate - 98,
-    87
+    1,
+    1,
+    4,
+    sysdate - 84,
+    91
 );
 
 insert into x03_attivita (
@@ -898,12 +908,12 @@ insert into x03_attivita (
     ore
 ) values (
     37,
-    3,
     2,
-    1,
-    1,
-    sysdate - 98,
-    3
+    2,
+    3,
+    4,
+    sysdate - 12,
+    36
 );
 
 insert into x03_attivita (
@@ -916,12 +926,12 @@ insert into x03_attivita (
     ore
 ) values (
     38,
-    1,
-    1,
-    1,
     3,
-    sysdate - 70,
-    15
+    3,
+    2,
+    2,
+    sysdate - 25,
+    36
 );
 
 insert into x03_attivita (
@@ -934,12 +944,12 @@ insert into x03_attivita (
     ore
 ) values (
     39,
-    2,
     1,
     1,
     2,
-    sysdate - 65,
-    93
+    3,
+    sysdate - 18,
+    82
 );
 
 insert into x03_attivita (
@@ -953,11 +963,11 @@ insert into x03_attivita (
 ) values (
     40,
     3,
+    2,
     3,
-    3,
-    1,
-    sysdate - 23,
-    38
+    2,
+    sysdate - 42,
+    91
 );
 
 insert into x03_attivita (
@@ -970,12 +980,12 @@ insert into x03_attivita (
     ore
 ) values (
     41,
-    2,
+    1,
+    1,
     1,
     2,
-    2,
-    sysdate - 36,
-    9
+    sysdate - 35,
+    18
 );
 
 insert into x03_attivita (
@@ -988,12 +998,12 @@ insert into x03_attivita (
     ore
 ) values (
     42,
-    3,
     2,
     3,
     3,
-    sysdate - 86,
-    64
+    4,
+    sysdate - 36,
+    24
 );
 
 insert into x03_attivita (
@@ -1006,12 +1016,12 @@ insert into x03_attivita (
     ore
 ) values (
     43,
-    2,
     3,
+    2,
     1,
-    1,
-    sysdate - 7,
-    23
+    2,
+    sysdate - 96,
+    67
 );
 
 insert into x03_attivita (
@@ -1025,11 +1035,11 @@ insert into x03_attivita (
 ) values (
     44,
     1,
-    3,
     1,
     1,
-    sysdate - 92,
-    48
+    1,
+    sysdate - 86,
+    68
 );
 
 insert into x03_attivita (
@@ -1043,11 +1053,11 @@ insert into x03_attivita (
 ) values (
     45,
     1,
-    1,
-    1,
-    1,
-    sysdate - 56,
-    83
+    3,
+    2,
+    3,
+    sysdate - 6,
+    14
 );
 
 insert into x03_attivita (
@@ -1061,11 +1071,11 @@ insert into x03_attivita (
 ) values (
     46,
     1,
-    2,
+    3,
     3,
     2,
-    sysdate - 32,
-    94
+    sysdate - 8,
+    37
 );
 
 insert into x03_attivita (
@@ -1078,12 +1088,12 @@ insert into x03_attivita (
     ore
 ) values (
     47,
-    2,
-    2,
     1,
     3,
-    sysdate - 22,
-    22
+    1,
+    2,
+    sysdate - 98,
+    91
 );
 
 insert into x03_attivita (
@@ -1097,11 +1107,11 @@ insert into x03_attivita (
 ) values (
     48,
     3,
+    1,
     3,
-    3,
-    3,
-    sysdate - 48,
-    16
+    4,
+    sysdate - 40,
+    70
 );
 
 insert into x03_attivita (
@@ -1115,11 +1125,11 @@ insert into x03_attivita (
 ) values (
     49,
     3,
-    1,
+    3,
     2,
     3,
-    sysdate - 29,
-    51
+    sysdate - 11,
+    46
 );
 
 insert into x03_attivita (
@@ -1134,10 +1144,10 @@ insert into x03_attivita (
     50,
     1,
     1,
+    3,
     2,
-    2,
-    sysdate - 67,
-    8
+    sysdate - 91,
+    64
 );
 
 commit;
@@ -1146,7 +1156,7 @@ alter table x03_attivita
 modify id generated always as identity restart start with 51;
  
  
--- Generated by Quick SQL Venerdì Dicembre 16, 2022  09:51:34
+-- Generated by Quick SQL Venerdì Dicembre 16, 2022  10:50:34
  
 /*
 dipendente /insert 3
@@ -1157,9 +1167,9 @@ cliente /insert 3
   cliente vc50 /nn /values cliente_01,cliente_02,cliente_03 /unique
   logo file
 
-stato /insert 3
+stato /insert 4
   stato vc50 /nn /values 10_da_iniziare, 20_iniziato, 30_concluso,90_annullato /unique
-  stato_class vc50
+  stato_class vc50 /values u-info,u-warning,u-success,u-danger
 
 commessa /insert 3
   commessa vc30 /values comm01,comm02,comm03 /unique
