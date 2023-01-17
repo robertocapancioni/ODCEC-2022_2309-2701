@@ -22,7 +22,3 @@ fattura_dettaglio
 #prefix: d221
 #ondelete:restrict
 #drop:true
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Term
