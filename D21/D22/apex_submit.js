@@ -1,1 +1,0 @@
-apex.submit({request:"DELETE"});
