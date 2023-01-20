@@ -1,5 +1,5 @@
 cliente
-  codice_cliente vc20 /nn
+  codice_cliente vc20 /nn /unique
   ragione_sociale vc50 /nn
   piva vc11 /nn
   indirizzo vc100 /nn
