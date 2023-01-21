@@ -24,3 +24,17 @@ insert into d231_fattura_testata
              'Sviluppo Software',
              to_date('23/01/2023','DD/MM/YYYY')
            );
+
+insert into d231_fattura_dettaglio 
+           (fattura_testata_id,
+            riga,
+            descrizione,
+            quantita,
+            importo)
+            values
+           ((select id from d231_fattura_testata where anno = 2023 and numero = 1),
+             10,
+             'Sviluppo Software',
+             1,
+             2000
+           );
