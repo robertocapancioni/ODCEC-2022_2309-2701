@@ -15,12 +15,12 @@ insert into d231_fattura_testata
            (cliente_id,
             anno,
             numero,
-            descrizione
+            descrizione,
             data)
             values
            ((select id from d231_cliente where codice_cliente='C001'),
              2023,
              1,
              'Sviluppo Software',
-             to_char('23/01/2023','DD/MM/YYYY')
+             to_date('23/01/2023','DD/MM/YYYY')
            );
